@@ -55,6 +55,7 @@ runs:
       id: run_build_sketch
       run: |
         pip install requests
+        cd ${{ inputs.sketch-path }}
         python $GITHUB_ACTION_PATH/build_sketch.py
         MCU=$(python $GITHUB_ACTION_PATH/get_mcu.py -c ${{ inputs.core }} -b ${{ inputs.board }})
         echo "MCU: $MCU"
